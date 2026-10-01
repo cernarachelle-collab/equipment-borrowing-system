@@ -1,0 +1,543 @@
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    --navy: #16324f;
+    --navy-dark: #10263b;
+    --blue: #286b8f;
+
+    --background: #f4f6f8;
+    --white: #ffffff;
+
+    --border: #dce2e8;
+
+    --text: #263238;
+    --muted: #6b7785;
+
+    --green: #237a57;
+    --green-light: #e8f5ef;
+
+    --red: #b33a3a;
+    --red-light: #fdecec;
+
+    --shadow: 0 10px 35px rgba(20, 45, 65, 0.10);
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+
+/* =========================================
+   LOGIN CONTAINER
+========================================= */
+
+.login-container {
+    width: 100%;
+
+    max-width: 950px;
+
+    min-height: 580px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: var(--white);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================
+   INFORMATION PANEL
+========================================= */
+
+.login-information {
+    background: var(--navy);
+
+    color: white;
+
+    padding: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.college-logo {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    color: var(--navy);
+
+    border-radius: 9px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-bottom: 30px;
+}
+
+
+.department-label {
+    color: #9fc4d7;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.1em;
+
+    margin-bottom: 8px;
+}
+
+
+.login-information h1 {
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+}
+
+
+.description {
+    color: #c9d8e2;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    max-width: 400px;
+}
+
+
+.information-divider {
+    width: 55px;
+
+    height: 2px;
+
+    background: #8eb7cb;
+
+    margin: 35px 0 20px;
+}
+
+
+.department-name {
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+
+.academic-note {
+    color: #aebfcc;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   FORM CONTAINER
+========================================= */
+
+.login-form-container {
+    padding: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+
+.form-label {
+    color: var(--blue);
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.1em;
+
+    margin-bottom: 5px;
+}
+
+
+.login-header h2 {
+    color: var(--navy);
+
+    font-size: 26px;
+
+    margin-bottom: 7px;
+}
+
+
+.login-header p:last-child {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+
+.form-group input {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid #cfd7df;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 13px;
+
+    color: var(--text);
+
+    background: white;
+
+    transition: 0.2s;
+}
+
+
+.form-group input:focus {
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 0 3px rgba(40, 107, 143, 0.10);
+}
+
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+.password-container {
+    position: relative;
+}
+
+
+.password-container input {
+    padding-right: 70px;
+}
+
+
+.show-password-button {
+    position: absolute;
+
+    right: 8px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--blue);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+
+.show-password-button:hover {
+    color: var(--navy);
+}
+
+
+/* =========================================
+   LOGIN MESSAGE
+========================================= */
+
+.login-message {
+    min-height: 20px;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+
+.login-message.error {
+    color: var(--red);
+
+    background: var(--red-light);
+
+    padding: 9px 11px;
+
+    border-radius: 5px;
+}
+
+
+.login-message.success {
+    color: var(--green);
+
+    background: var(--green-light);
+
+    padding: 9px 11px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-button {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: var(--navy);
+
+    color: white;
+
+    padding: 13px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.login-button:hover {
+    background: var(--blue);
+}
+
+
+.login-button:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================
+   DEMO ACCOUNT
+========================================= */
+
+.demo-information {
+    margin-top: 25px;
+
+    padding: 14px;
+
+    background: #f7f9fb;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+}
+
+
+.demo-information strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+}
+
+
+.demo-information p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 2px;
+}
+
+
+.demo-information span {
+    color: var(--navy);
+
+    font-weight: bold;
+}
+
+
+.demo-information small {
+    display: block;
+
+    color: #8a949d;
+
+    font-size: 10px;
+
+    margin-top: 6px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer-text {
+    text-align: center;
+
+    color: #8a949d;
+
+    font-size: 10px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .login-page {
+        padding: 15px;
+    }
+
+
+    .login-container {
+        grid-template-columns: 1fr;
+
+        max-width: 500px;
+    }
+
+
+    .login-information {
+        padding: 35px;
+    }
+
+
+    .login-information h1 {
+        font-size: 25px;
+    }
+
+
+    .login-form-container {
+        padding: 35px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .login-page {
+        padding: 0;
+    }
+
+
+    .login-container {
+        min-height: 100vh;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+
+    .login-information {
+        padding: 30px 25px;
+    }
+
+
+    .login-form-container {
+        padding: 30px 25px;
+    }
+
+}

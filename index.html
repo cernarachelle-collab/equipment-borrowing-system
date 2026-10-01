@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Equipment Borrowing Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                EB
+            </div>
+
+            <div>
+                <h1>Equipment Services</h1>
+                <p>Department Laboratory</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <button
+                class="nav-link active"
+                data-section="dashboardSection">
+                Dashboard
+            </button>
+
+            <button
+                class="nav-link"
+                data-section="equipmentSection">
+                Equipment
+            </button>
+
+            <button
+                class="nav-link"
+                data-section="borrowSection">
+                Borrow Equipment
+            </button>
+
+            <button
+                class="nav-link"
+                data-section="returnSection">
+                Return Equipment
+            </button>
+
+            <button
+                class="nav-link"
+                data-section="transactionsSection">
+                Transactions
+            </button>
+
+        </nav>
+
+
+        <!-- Logout -->
+        <button
+            id="logoutButton"
+            class="logout-button">
+            Logout
+        </button>
+
+
+        <div class="sidebar-footer">
+
+            <p>College Department</p>
+
+            <small>
+                Equipment Management System
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div>
+
+                <p class="page-label">
+                    Department Operations
+                </p>
+
+                <h2 id="pageTitle">
+                    Dashboard
+                </h2>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                System Ready
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             DASHBOARD
+        ========================== -->
+        <section
+            id="dashboardSection"
+            class="page-section active-section">
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <p class="page-label">
+                        Equipment Borrowing Management
+                    </p>
+
+                    <h2>
+                        Welcome to the Department Equipment System
+                    </h2>
+
+                    <p>
+                        Monitor equipment availability and manage borrowing
+                        and returning transactions in one organized system.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-mark">
+                    EB
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+            <div class="statistics-grid">
+
+                <div class="stat-card">
+
+                    <div>
+
+                        <p>Total Equipment</p>
+
+                        <h3 id="totalEquipment">
+                            0
+                        </h3>
+
+                    </div>
+
+                    <span class="stat-icon">
+                        EQ
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div>
+
+                        <p>Available Equipment</p>
+
+                        <h3 id="availableEquipment">
+                            0
+                        </h3>
+
+                    </div>
+
+                    <span class="stat-icon">
+                        AV
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div>
+
+                        <p>Borrowed Equipment</p>
+
+                        <h3 id="borrowedEquipment">
+                            0
+                        </h3>
+
+                    </div>
+
+                    <span class="stat-icon">
+                        BR
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Recent Transactions -->
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <p class="page-label">
+                            Activity
+                        </p>
+
+                        <h3>
+                            Recent Transactions
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        class="secondary-button"
+                        data-section="transactionsSection">
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Equipment
+                                </th>
+
+                                <th>
+                                    Borrower
+                                </th>
+
+                                <th>
+                                    Borrow Date
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="recentTransactionsBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EQUIPMENT
+        ========================== -->
+        <section
+            id="equipmentSection"
+            class="page-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="page-label">
+                        Inventory
+                    </p>
+
+                    <h2>
+                        Equipment
+                    </h2>
+
+                    <p>
+                        View the department's equipment and current availability.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Equipment Inventory
+                        </h3>
+
+                        <p>
+                            Current equipment status
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        class="record-count"
+                        id="equipmentCount">
+                        0 items
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Equipment ID
+                                </th>
+
+                                <th>
+                                    Equipment Name
+                                </th>
+
+                                <th>
+                                    Category
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="equipmentTableBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BORROW EQUIPMENT
+        ========================== -->
+        <section
+            id="borrowSection"
+            class="page-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="page-label">
+                        Transaction
+                    </p>
+
+                    <h2>
+                        Borrow Equipment
+                    </h2>
+
+                    <p>
+                        Record a new equipment borrowing transaction.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-layout">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Borrowing Information
+                            </h3>
+
+                            <p>
+                                Complete all required fields.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="borrowForm">
+
+                        <div class="form-group">
+
+                            <label for="equipmentSelect">
+                                Equipment
+                            </label>
+
+                            <select
+                                id="equipmentSelect"
+                                required>
+
+                                <option value="">
+                                    Select available equipment
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="borrowerName">
+                                Borrower Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="borrowerName"
+                                placeholder="Enter borrower name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="borrowerType">
+                                Borrower Type
+                            </label>
+
+                            <select
+                                id="borrowerType"
+                                required>
+
+                                <option value="">
+                                    Select borrower type
+                                </option>
+
+                                <option value="Student">
+                                    Student
+                                </option>
+
+                                <option value="Faculty">
+                                    Faculty
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="borrowDate">
+                                    Borrowing Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="borrowDate"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="expectedReturnDate">
+                                    Expected Return Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="expectedReturnDate"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <p
+                            id="borrowMessage"
+                            class="form-message">
+                        </p>
+
+
+                        <button
+                            type="submit"
+                            class="primary-button">
+                            Record Borrowing
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <div class="information-card">
+
+                    <div class="info-icon">
+                        i
+                    </div>
+
+                    <h3>
+                        Borrowing Guidelines
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Only available equipment can be borrowed.
+                        </li>
+
+                        <li>
+                            All required borrower information must be completed.
+                        </li>
+
+                        <li>
+                            The expected return date cannot be earlier than
+                            the borrowing date.
+                        </li>
+
+                        <li>
+                            Equipment status automatically changes to
+                            <strong>Borrowed</strong>.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RETURN EQUIPMENT
+        ========================== -->
+        <section
+            id="returnSection"
+            class="page-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="page-label">
+                        Transaction
+                    </p>
+
+                    <h2>
+                        Return Equipment
+                    </h2>
+
+                    <p>
+                        Record the return of currently borrowed equipment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Equipment for Return
+                        </h3>
+
+                        <p>
+                            Currently borrowed equipment
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Equipment
+                                </th>
+
+                                <th>
+                                    Borrower
+                                </th>
+
+                                <th>
+                                    Borrow Date
+                                </th>
+
+                                <th>
+                                    Expected Return
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="returnTableBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRANSACTIONS
+        ========================== -->
+        <section
+            id="transactionsSection"
+            class="page-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="page-label">
+                        Records
+                    </p>
+
+                    <h2>
+                        Transactions
+                    </h2>
+
+                    <p>
+                        View borrowing and returning transaction records.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Transaction Records
+                        </h3>
+
+                        <p>
+                            Complete borrowing history
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        class="record-count"
+                        id="transactionCount">
+                        0 records
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Transaction ID
+                                </th>
+
+                                <th>
+                                    Equipment
+                                </th>
+
+                                <th>
+                                    Borrower
+                                </th>
+
+                                <th>
+                                    Type
+                                </th>
+
+                                <th>
+                                    Borrow Date
+                                </th>
+
+                                <th>
+                                    Expected Return
+                                </th>
+
+                                <th>
+                                    Actual Return
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="transactionsTableBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Toast notification -->
+    <div
+        id="toast"
+        class="toast"
+        role="alert"
+        aria-live="polite">
+    </div>
+
+
+    <!-- Session protection -->
+    <script>
+
+        // Prevent direct access to the main application
+        // when the user has not logged in.
+
+        const SESSION_KEY = "ebms_logged_in";
+
+        if (
+            sessionStorage.getItem(SESSION_KEY) !== "true"
+        ) {
+
+            window.location.href = "login.html";
+
+        }
+
+    </script>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
